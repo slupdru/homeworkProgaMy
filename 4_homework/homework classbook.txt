@@ -1,4 +1,4 @@
-// classworkbook.cpp: РѕРїСЂРµРґРµР»СЏРµС‚ С‚РѕС‡РєСѓ РІС…РѕРґР° РґР»СЏ РєРѕРЅСЃРѕР»СЊРЅРѕРіРѕ РїСЂРёР»РѕР¶РµРЅРёСЏ.
+// classworkbook.cpp: Р С•Р С—РЎР‚Р ВµР Т‘Р ВµР В»РЎРЏР ВµРЎвЂљ РЎвЂљР С•РЎвЂЎР С”РЎС“ Р Р†РЎвЂ¦Р С•Р Т‘Р В° Р Т‘Р В»РЎРЏ Р С”Р С•Р Р…РЎРѓР С•Р В»РЎРЉР Р…Р С•Р С–Р С• Р С—РЎР‚Р С‘Р В»Р С•Р В¶Р ВµР Р…Р С‘РЎРЏ.
 //
 
 #include "stdafx.h"
@@ -6,7 +6,7 @@
 #include <windows.h>
 #include <cstring>
 using namespace std;
-class date //класс для работы с датами
+class date //РєР»Р°СЃСЃ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РґР°С‚Р°РјРё
 {
 	int day;
 	int month;
@@ -14,42 +14,42 @@ class date //класс для работы с датами
 public:
 	void put()
 	{
-		cout << "Введите день: ";
+		cout << "Р’РІРµРґРёС‚Рµ РґРµРЅСЊ: ";
 		cin >> day;
-		cout << "Введите месяц: ";
+		cout << "Р’РІРµРґРёС‚Рµ РјРµСЃСЏС†: ";
 		cin >> month;
-		cout << "Введите год: ";
+		cout << "Р’РІРµРґРёС‚Рµ РіРѕРґ: ";
 		cin >> year;
 	}
-	void get()    // вывод данных о дате
+	void get()    // РІС‹РІРѕРґ РґР°РЅРЅС‹С… Рѕ РґР°С‚Рµ
 	{
 		cout << day << '.' << month << '.' << year;
 	}
-	int operator-(date a1)   // описание операции для считывание интервала между датами в днях 
+	int operator-(date a1)   // РѕРїРёСЃР°РЅРёРµ РѕРїРµСЂР°С†РёРё РґР»СЏ СЃС‡РёС‚С‹РІР°РЅРёРµ РёРЅС‚РµСЂРІР°Р»Р° РјРµР¶РґСѓ РґР°С‚Р°РјРё РІ РґРЅСЏС… 
 	{
 		return((year - a1.year) * 365 + (month - a1.month) + day - a1.day);
 	}
 };
 ///////////////////////////////////////////////////////////
-struct link   // один элемент списка
+struct link   // РѕРґРёРЅ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°
 {
-	char* reader;   // некоторые данные о читателе
-	date d; // дата выдачи книги
-	link* next; // указатель на следующую структуру
+	char* reader;   // РЅРµРєРѕС‚РѕСЂС‹Рµ РґР°РЅРЅС‹Рµ Рѕ С‡РёС‚Р°С‚РµР»Рµ
+	date d; // РґР°С‚Р° РІС‹РґР°С‡Рё РєРЅРёРіРё
+	link* next; // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃР»РµРґСѓСЋС‰СѓСЋ СЃС‚СЂСѓРєС‚СѓСЂСѓ
 };
 ///////////////////////////////////////////////////////////
-class linklist // список, описывающий читателей
+class linklist // СЃРїРёСЃРѕРє, РѕРїРёСЃС‹РІР°СЋС‰РёР№ С‡РёС‚Р°С‚РµР»РµР№
 {
 private:
 	link* first;
 	link* last;
 public:
-	linklist()            // конструктор без параметров
+	linklist()            // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 	{
 		first = NULL;
 		last = NULL;
 	}
-	void additem(char* r, date d);    // добавление элемента
+	void additem(char* r, date d);    // РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
 	linklist(linklist & l)
 	{
 		first = NULL;
@@ -59,10 +59,10 @@ public:
 			_first = _first->next;
 		} while (_first);
 	}
-	void delitem(char* r1);     //удаление элемента
-	void delall();      //удаление всего списка
-	void display();     //вывод всех данных
-	void display(date d1);       // показ данных в зависимости от даты
+	void delitem(char* r1);     //СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
+	void delall();      //СѓРґР°Р»РµРЅРёРµ РІСЃРµРіРѕ СЃРїРёСЃРєР°
+	void display();     //РІС‹РІРѕРґ РІСЃРµС… РґР°РЅРЅС‹С…
+	void display(date d1);       // РїРѕРєР°Р· РґР°РЅРЅС‹С… РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РґР°С‚С‹
 };
 void linklist::delall()
 {
@@ -70,52 +70,52 @@ void linklist::delall()
 	link* current = first;
 	while (current)
 	{
-	    link *next = current->next;
+		link *next = current->next;
 		delete current;
 		current = next;
 	}
 }
 void linklist::display()
 {
-	link* current = first;           // начинаем с первого элемента
-	while (current)                   // пока есть данные
+	link* current = first;           // РЅР°С‡РёРЅР°РµРј СЃ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
+	while (current)                   // РїРѕРєР° РµСЃС‚СЊ РґР°РЅРЅС‹Рµ
 	{
-		cout << current->reader << endl; // печатаем данные
-		current = current->next;      // двигаемся к следующему элементу
+		cout << current->reader << endl; // РїРµС‡Р°С‚Р°РµРј РґР°РЅРЅС‹Рµ
+		current = current->next;      // РґРІРёРіР°РµРјСЃСЏ Рє СЃР»РµРґСѓСЋС‰РµРјСѓ СЌР»РµРјРµРЅС‚Сѓ
 	}
 }
 void linklist::delitem(char* r1)
 {
-	link* current = first;
-	link* pref = NULL;
-	while (current)                   // пока есть данные
-	{
-		if (current->reader == r1)   // если название книги совпадает с названием элемента из списка 
+		link* current = first;
+		link* pref = NULL;
+		while (current)                   // РїРѕРєР° РµСЃС‚СЊ РґР°РЅРЅС‹Рµ
 		{
-			if (!pref)
+			if (current->reader == r1)   // РµСЃР»Рё РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё СЃРѕРІРїР°РґР°РµС‚ СЃ РЅР°Р·РІР°РЅРёРµРј СЌР»РµРјРµРЅС‚Р° РёР· СЃРїРёСЃРєР° 
 			{
-				first = current->next;
-				delete current;
+				if (!pref)
+				{
+					first = current->next;
+					delete current;
+				}
+				else
+				{
+					pref->next = current->next;// СѓРґР°Р»РµРЅРёРµ РёР· СЃРїРёСЃРєР° СЌР»РµРјРµРЅС‚Р°
+					delete current;
+				}
 			}
 			else
 			{
-				pref->next = current->next;// удаление из списка элемента
-				delete current;
+				pref = current; // РѕРїСЂРµРґРµР»СЏРµРј РїСЂРµРґС‹РґСѓС‰РёР№ СЌР»РµРјРµРЅС‚
+				current = current->next; // РґРІРёРіР°РµРјСЃСЏ Рє СЃР»РµРґСѓСЋС‰РµРјСѓ СЌР»РµРјРµРЅС‚Сѓ
 			}
 		}
-		else
-		{
-			pref = current; // определяем предыдущий элемент
-			current = current->next; // двигаемся к следующему элементу
-		}
-	}
 }
-void linklist::additem(char* r, date d)    // добавление элемента
+void linklist::additem(char* r, date d)    // РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
 {
-	link* newlink = new link; // выделяем память
+	link* newlink = new link; // РІС‹РґРµР»СЏРµРј РїР°РјСЏС‚СЊ
 	newlink->reader = new char[30];
-	strcpy_s(newlink->reader, strlen(r) + 1, r);          // запоминаем данные о читателе
-	newlink->d = d;             // запоминаем значение даты выдачи
+	strcpy_s(newlink->reader, strlen(r) + 1, r);          // Р·Р°РїРѕРјРёРЅР°РµРј РґР°РЅРЅС‹Рµ Рѕ С‡РёС‚Р°С‚РµР»Рµ
+	newlink->d = d;             // Р·Р°РїРѕРјРёРЅР°РµРј Р·РЅР°С‡РµРЅРёРµ РґР°С‚С‹ РІС‹РґР°С‡Рё
 	newlink->next = NULL;
 	if (!first)
 	{
@@ -136,23 +136,23 @@ void linklist::additem(char* r, date d)    // добавление элемента
 }
 void linklist::display(date d1)
 {
-	link* current = first;           // начинаем с первого элемента
-	while (current)                   // пока есть данные
+	link* current = first;           // РЅР°С‡РёРЅР°РµРј СЃ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
+	while (current)                   // РїРѕРєР° РµСЃС‚СЊ РґР°РЅРЅС‹Рµ
 	{
 		if ((d1 - current->d) >= 365)
-			cout << current->reader << endl; // печатаем данные
-		current = current->next;      // двигаемся к следующему элементу
+			cout << current->reader << endl; // РїРµС‡Р°С‚Р°РµРј РґР°РЅРЅС‹Рµ
+		current = current->next;      // РґРІРёРіР°РµРјСЃСЏ Рє СЃР»РµРґСѓСЋС‰РµРјСѓ СЌР»РµРјРµРЅС‚Сѓ
 	}
 }
 ///////////////////////////////////////////////////////////
 class book
 {
 protected:
-	char* name;// название книги
-	char* readers;// авторы книги
-	int yp;// год издания
-	char* publ;// название издательства
-	int amp;// количество страниц
+	char* name;// РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё
+	char* readers;// Р°РІС‚РѕСЂС‹ РєРЅРёРіРё
+	int yp;// РіРѕРґ РёР·РґР°РЅРёСЏ
+	char* publ;// РЅР°Р·РІР°РЅРёРµ РёР·РґР°С‚РµР»СЊСЃС‚РІР°
+	int amp;// РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂР°РЅРёС†
 	int id;
 public:
 	book() :yp(0), amp(0), id(0)
@@ -164,15 +164,15 @@ public:
 	book(book &);
 	void put()
 	{
-		cout << "Введите название книги:";
+		cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё:";
 		cin >> name;
-		cout << "Введите авторов книги:";
+		cout << "Р’РІРµРґРёС‚Рµ Р°РІС‚РѕСЂРѕРІ РєРЅРёРіРё:";
 		cin >> readers;
-		cout << "Введите год издания:";
+		cout << "Р’РІРµРґРёС‚Рµ РіРѕРґ РёР·РґР°РЅРёСЏ:";
 		cin >> yp;
-		cout << "Введите название издательства:";
+		cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РёР·РґР°С‚РµР»СЊСЃС‚РІР°:";
 		cin >> publ;
-		cout << "Введите количество страниц:";
+		cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂР°РЅРёС†:";
 		cin >> amp;
 	}
 	~book()
@@ -187,16 +187,16 @@ book::book(book & b1) : yp(b1.yp), amp(b1.amp), id(b1.id)
 	name = new char[20];
 	publ = new char[20];
 	readers = new char[50];
-	strcpy_s(name,strlen(b1.name)+1,b1.name);
-	strcpy_s(publ,strlen(b1.publ)+1,b1.publ);
-	strcpy_s(readers,strlen(b1.readers)+1,b1.readers);
+	strcpy_s(name, strlen(b1.name) + 1, b1.name);
+	strcpy_s(publ, strlen(b1.publ) + 1, b1.publ);
+	strcpy_s(readers, strlen(b1.readers) + 1, b1.readers);
 }
 ///////////////////////////////////////////////////////////
 class direct : public book
 {
-	int ambook;// количество экземпляров
+	int ambook;// РєРѕР»РёС‡РµСЃС‚РІРѕ СЌРєР·РµРјРїР»СЏСЂРѕРІ
 	int ambinst;// amount of books in stock 
-	linklist l2;// список читателей
+	linklist l2;// СЃРїРёСЃРѕРє С‡РёС‚Р°С‚РµР»РµР№
 public:
 	direct() : book(), ambook(0), ambinst(0)
 	{}
@@ -207,12 +207,12 @@ public:
 		//book::~book();
 		l2.delall();
 	}
-	void put()  // ввод данных о книге
+	void put()  // РІРІРѕРґ РґР°РЅРЅС‹С… Рѕ РєРЅРёРіРµ
 	{
 		book::put();
-		cout << "Введите количество экземпляров: ";
+		cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌРєР·РµРјРїР»СЏСЂРѕРІ: ";
 		cin >> ambook;
-		cout << "Введите количество экземпляров в наличии: ";
+		cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌРєР·РµРјРїР»СЏСЂРѕРІ РІ РЅР°Р»РёС‡РёРё: ";
 		cin >> ambinst;
 	}
 	char* outr()
@@ -231,23 +231,23 @@ public:
 	{
 		l2.display();
 	}
-	void getting(); // добавление читателей 
-	void del();  // удаление данных о книге
-	void dellist() //удаление списка читателей
+	void getting(); // РґРѕР±Р°РІР»РµРЅРёРµ С‡РёС‚Р°С‚РµР»РµР№ 
+	void del();  // СѓРґР°Р»РµРЅРёРµ РґР°РЅРЅС‹С… Рѕ РєРЅРёРіРµ
+	void dellist() //СѓРґР°Р»РµРЅРёРµ СЃРїРёСЃРєР° С‡РёС‚Р°С‚РµР»РµР№
 	{
 		l2.delall();
 		ambinst = ambook;
 	}
-	void show(date); // вывод списка читателей, которые взяли книгу более 1 года назад, включая только тех, кто не сдал книгу
+	void show(date); // РІС‹РІРѕРґ СЃРїРёСЃРєР° С‡РёС‚Р°С‚РµР»РµР№, РєРѕС‚РѕСЂС‹Рµ РІР·СЏР»Рё РєРЅРёРіСѓ Р±РѕР»РµРµ 1 РіРѕРґР° РЅР°Р·Р°Рґ, РІРєР»СЋС‡Р°СЏ С‚РѕР»СЊРєРѕ С‚РµС…, РєС‚Рѕ РЅРµ СЃРґР°Р» РєРЅРёРіСѓ
 };
 //////////////////////////////////////////////////////////
 void direct::getting()
 {
 	char * r = new char[30];
 	date* d2 = new date;
-	cout << "Введите имя читателя:";
+	cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С‡РёС‚Р°С‚РµР»СЏ:";
 	cin >> r;
-	cout << "Введите дату выдачи" << endl;
+	cout << "Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РІС‹РґР°С‡Рё" << endl;
 	d2->put();
 	l2.additem(r, *d2);
 	--ambinst;
@@ -256,7 +256,7 @@ void direct::del()
 {
 	char * r;
 	r = new char[30];
-	cout << "Введите имя читателя:";
+	cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С‡РёС‚Р°С‚РµР»СЏ:";
 	cin >> r;
 	l2.delitem(r);
 	++ambinst;
@@ -267,26 +267,26 @@ void direct::show(date d1)
 	l2.display(d1);
 }
 ///////////////////////////////////////////////////////////
-struct linkdir   // один элемент списка
+struct linkdir   // РѕРґРёРЅ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°
 {
-	direct* d1;   // некоторые данные о каталоге
-	linkdir* next; // указатель на следующую структуру
+	direct* d1;   // РЅРµРєРѕС‚РѕСЂС‹Рµ РґР°РЅРЅС‹Рµ Рѕ РєР°С‚Р°Р»РѕРіРµ
+	linkdir* next; // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃР»РµРґСѓСЋС‰СѓСЋ СЃС‚СЂСѓРєС‚СѓСЂСѓ
 };
 ///////////////////////////////////////////////////////////
-class linkfordirect // список
+class linkfordirect // СЃРїРёСЃРѕРє
 {
 private:
 	linkdir* first;
 	linkdir* last;
 public:
-	linkfordirect()            // конструктор без параметров
+	linkfordirect()            // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 	{
 		first = NULL;
 		last = NULL;
-	}   // первого элемента пока нет
-	void additem(direct d)
+	}   // РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РїРѕРєР° РЅРµС‚
+	void additem(direct d)//РґРѕР±Р°Р»РµРЅРёРµ РєРЅРёРіРё РІ РєР°С‚Р°Р»РѕРі
 	{
-		linkdir* newlink = new linkdir; // выделяем память
+		linkdir* newlink = new linkdir; // РІС‹РґРµР»СЏРµРј РїР°РјСЏС‚СЊ
 		newlink->d1 = new direct(d);
 		newlink->next = NULL;
 		if (!first)
@@ -306,13 +306,13 @@ public:
 			last = newlink;
 		}
 	}
-	void display();     // показ данных
+	void display();     // РїРѕРєР°Р· РґР°РЅРЅС‹С…
 	void display(int ID);
 	void display(date d1);
 	void display(char* r, char* n);
-	void delitem(char*);// удаление элемента из списака
+	void delitem(char*);// СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РёР· СЃРїРёСЃР°РєР°
 };
-void linkfordirect::display(date d1)
+void linkfordirect::display(date d1)//РІС‹РІРѕРґРёС‚ С‡РёС‚Р°С‚РµР»РµР№, РєРѕС‚РѕСЂС‹Рµ РЅРµ РѕС‚РґР°Р»Рё РєРЅРёРіРё РІ С‚РµС‡РµРЅРёРµ РіРѕРґР°
 {
 	linkdir* current = first;
 	while (current)
@@ -321,55 +321,56 @@ void linkfordirect::display(date d1)
 		current = current->next;
 	}
 }
-void linkfordirect::display()
+void linkfordirect::display()//С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґРёС‚ РЅР°Р·РІР°РЅРёСЏ РєРЅРёРі СЃ С‡РёС‚Р°С‚РµР»СЏРјРё
 {
-	linkdir* current = first;           // начинаем с первого элемента
-	while (current)                   // пока есть данные
+	linkdir* current = first;           // РЅР°С‡РёРЅР°РµРј СЃ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
+	cout << "Р’С‹РІРѕРґ РІСЃРµРіРѕ РєР°С‚Р°Р»РѕРіР°: ";
+	while (current)                   // РїРѕРєР° РµСЃС‚СЊ РґР°РЅРЅС‹Рµ
 	{
-		cout <<"Название книги: "<< current->d1->outn() << endl; // печатаем данные
-		cout << "Список читателей: ";
+		cout << "РќР°Р·РІР°РЅРёРµ РєРЅРёРіРё: " << current->d1->outn() << endl; // РїРµС‡Р°С‚Р°РµРј РґР°РЅРЅС‹Рµ
+		cout << "РЎРїРёСЃРѕРє С‡РёС‚Р°С‚РµР»РµР№: ";
 		current->d1->getread();
 		cout << endl << endl;
-		current = current->next;       // двигаемся к следующему элементу
+		current = current->next;       // РґРІРёРіР°РµРјСЃСЏ Рє СЃР»РµРґСѓСЋС‰РµРјСѓ СЌР»РµРјРµРЅС‚Сѓ
 	}
 }
-void linkfordirect::display(int ID)
+void linkfordirect::display(int ID)//Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё РїРѕ РєРЅРёРіРµ Рё С‡РёС‚Р°С‚РµР»СЏРј РІР·СЏРІС€РёРј РєРЅРёРіСѓ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ
 {
-	linkdir* current = first;           // начинаем с первого элемента
-	while (current)                   // пока есть данные
+	linkdir* current = first;           // РЅР°С‡РёРЅР°РµРј СЃ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
+	while (current)                   // РїРѕРєР° РµСЃС‚СЊ РґР°РЅРЅС‹Рµ
 	{
 		if (current->d1->outid() == ID)
 		{
-			cout <<"Название книги: "<< current->d1->outn() << endl; // печатаем данные о книге
-			cout << "Список читателей:";
+			cout << "РќР°Р·РІР°РЅРёРµ РєРЅРёРіРё: " << current->d1->outn() << endl; // РїРµС‡Р°С‚Р°РµРј РґР°РЅРЅС‹Рµ Рѕ РєРЅРёРіРµ
+			cout << "РЎРїРёСЃРѕРє С‡РёС‚Р°С‚РµР»РµР№:";
 			current->d1->getread();
 		}
-		current = current->next;       // двигаемся к следующему элементу
+		current = current->next;       // РґРІРёРіР°РµРјСЃСЏ Рє СЃР»РµРґСѓСЋС‰РµРјСѓ СЌР»РµРјРµРЅС‚Сѓ
 	}
 }
-void linkfordirect::display(char* r, char* n)
+void linkfordirect::display(char* r, char* n)//РџРѕРёСЃРє РєРЅРёРіРё РІ РєР°С‚Р°Р»РѕРіРµ РїРѕ РЅР°Р·РІР°РЅРёСЋ Рё РїРѕ Р°РІС‚РѕСЂСѓ СЃ РІС‹РґР°С‡РµР№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂР°
 {
-	linkdir* current = first;           // начинаем с первого элемента
-	while (current)                   // пока есть данные
+	linkdir* current = first;           // РЅР°С‡РёРЅР°РµРј СЃ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
+	while (current)                   // РїРѕРєР° РµСЃС‚СЊ РґР°РЅРЅС‹Рµ
 	{
-		if ((current->d1->outn() == n)&&(current->d1->outr() == r))
+		if ((current->d1->outn() == n) && (current->d1->outr() == r))
 		{
-			cout << "Индефекатор: " << current->d1->outid() << endl; // печатаем данные о книге
+			cout << "РРЅРґРµС„РµРєР°С‚РѕСЂ: " << current->d1->outid() << endl; // РїРµС‡Р°С‚Р°РµРј РґР°РЅРЅС‹Рµ Рѕ РєРЅРёРіРµ
 		}
-		current = current->next;       // двигаемся к следующему элементу
+		current = current->next;       // РґРІРёРіР°РµРјСЃСЏ Рє СЃР»РµРґСѓСЋС‰РµРјСѓ СЌР»РµРјРµРЅС‚Сѓ
 	}
 }
-void linkfordirect::delitem(char* n)
+void linkfordirect::delitem(char* n)//СѓРґР°Р»РµРЅРёРµ РєРЅРёРіРё РёР· РєР°С‚Р°Р»РѕРіР°
 {
 	linkdir* current = first;
 	linkdir* pref;
-	while (current)                   // пока есть данные
+	while (current)                   // РїРѕРєР° РµСЃС‚СЊ РґР°РЅРЅС‹Рµ
 	{
-		pref = current;               // запоминаем данные предыдущего элемента
-		current = current->next;      // двигаемся к следующему элементу
-		if (current->d1->outn() == n)   // если название книги совпадает с названием элемента из списка 
+		pref = current;               // Р·Р°РїРѕРјРёРЅР°РµРј РґР°РЅРЅС‹Рµ РїСЂРµРґС‹РґСѓС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р°
+		current = current->next;      // РґРІРёРіР°РµРјСЃСЏ Рє СЃР»РµРґСѓСЋС‰РµРјСѓ СЌР»РµРјРµРЅС‚Сѓ
+		if (current->d1->outn() == n)   // РµСЃР»Рё РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё СЃРѕРІРїР°РґР°РµС‚ СЃ РЅР°Р·РІР°РЅРёРµРј СЌР»РµРјРµРЅС‚Р° РёР· СЃРїРёСЃРєР° 
 		{
-			pref->next = current->next;// удаление из списка элемента
+			pref->next = current->next;// СѓРґР°Р»РµРЅРёРµ РёР· СЃРїРёСЃРєР° СЌР»РµРјРµРЅС‚Р°
 		}
 	}
 }
@@ -384,10 +385,16 @@ int main()
 	d1->getting();
 	d1->getting();
 	l1.additem(*d1);
-	direct* d2;
-	d2 = new direct(*d1);
+	direct* d2 = new direct;
+	d2->put();
+	d2->getting();
+	d2->getting();
 	l1.additem(*d2);
+	cout << endl << endl << endl;
 	l1.display();
+	date x;
+	x.put();
+	l1.display(x);
 	return 0;
 }
 
